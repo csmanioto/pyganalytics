@@ -1,0 +1,37 @@
+{
+        "Config":
+            {
+                "service_account_email": "ACCOUNTSERVICE@developer.gserviceaccount.com",
+                "key_file_location": "/Users/smaniotto/projects/vr-da-pdi_etl/keys/key.p12",
+                "serviceName_v4": "analyticsreporting",
+                "serviceName_v3": "analytics",
+                "version" : "v3",
+                "discoveryServiceUrl_v4": "https://analyticsreporting.googleapis.com/$discovery/rest",
+                "discoveryServiceUrl_v3": "https://www.googleapis.com/discovery/v1/apis/analytics/v3/rest",
+                "discoveryLink_v3": "./apis/analytics/v3/rest",
+                "scope": "https://www.googleapis.com/auth/analytics.readonly"
+            },
+        "DBConfig": {
+          "engine": "redshift+psycopg2",
+          "endPoint": "redshift-endpoint",
+          "tcpPort" : "5439",
+          "user" : "login",
+          "password": "pass",
+          "database": "db",
+          "table": "table_google_analytics_sessions"
+        },
+        "Query":
+          {
+                "account_id": "xxxxx",
+                "account_name": "MyGoogle",
+                "webPropertyId": "UA-xxxxx-xx",
+                "profile": "ga:xxxxx",
+                "metrics": "ga:sessions",
+                "dimensions": "ga:date",
+                "start" : "2daysAgo",
+                "end": "yesterday",
+                "samplingLevel_v3": ["HIGHER_PRECISION", "DEFAULT","FASTER"],
+                "samplingLevel_v4":    ["LARGE", "DEFAULT", "SMALL"]
+          }
+
+}
